@@ -1,10 +1,12 @@
 {
   "name": "MyHANAApp",
   "version": "1.0.0",
-  "description": "A simple CAP project.",
-  "repository": "<Add your repository here>",
+  "description": "CAP Sample – HANA Cloud + UI5",
   "license": "UNLICENSED",
   "private": true,
+
+  "engines": { "node": ">=20" },
+
   "dependencies": {
     "@cap-js/hana": "^2",
     "@sap/cds": "^9",
@@ -12,28 +14,22 @@
     "@sap/xssec": "^4",
     "express": "^4"
   },
-  "engines": {
-    "node": ">=20"
-  },
   "devDependencies": {
     "@cap-js/cds-types": "^0.13.0",
     "@cap-js/sqlite": "^2",
     "@sap/cds-dk": ">=8",
-    "@sap/ux-ui5-tooling": "^1.18.2"
+    "@sap/ux-ui5-tooling": "^1.18.2",
+    "npm-run-all": "^4"
   },
   "scripts": {
-    "start": "cds-serve",
-    "watch-interaction_items": "cds watch --open interaction_items/webapp/index.html?sap-ui-xx-viewCache=false"
-  },
-  "cds": {
-    "requires": {
-      "[production]": {
-        "auth": "mocked"
-      }
-    }
+    "start":            "cds watch --profile dev",       
+    "cds:hybrid":       "cds watch --profile hybrid",    
+    "approuter":        "npm --prefix approuter start",   
+    "start:hybrid":     "npm-run-all --parallel cds:hybrid approuter",
+    "watch-interaction_items":
+      "cds watch --profile dev --open app/interaction_items/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "sapux": [
-    "app/interaction_items",
     "app/interaction_items"
   ]
 }

@@ -1,0 +1,14 @@
+{
+  "name": "approuter",
+  "version": "1.0.0",
+  "description": "Local approuter for CAP project",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sap/approuter": "^20.6.0"
+  }
+}

@@ -1,27 +1,19 @@
 {
   "authenticationMethod": "route",
-  "logout": {
-    "logoutEndpoint": "/app-logout",
-    "logoutPage": "/"
-  },
   "routes": [
     {
       "source": "^/app/(.*)$",
       "target": "$1",
       "localDir": ".",
       "cacheControl": "no-cache, no-store, must-revalidate",
-      "authenticationType": "xsuaa"
+      "authenticationType": "none"
     },
     {
-      "source": "^/appconfig/",
-      "localDir": ".",
-      "cacheControl": "no-cache, no-store, must-revalidate"
-    },
-    {
-      "source": "^/user-api(.*)",
+      "source": "^/appconfig/(.*)$",
       "target": "$1",
-      "service": "sap-approuter-userapi",
-      "authenticationType": "xsuaa"
+      "localDir": ".",
+      "cacheControl": "no-cache, no-store, must-revalidate",
+      "authenticationType": "none"
     },
     {
       "source": "^/(.*)$",
