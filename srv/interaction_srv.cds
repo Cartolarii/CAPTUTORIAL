@@ -19,4 +19,6 @@ service CatalogService {
   @readonly
   @restrict: [{ grant: 'READ', where: 'country_code = ''DE'''}]
   entity HeaderView as projection on interactions.Headers;
+
+  function sleep() returns Boolean;
 }
